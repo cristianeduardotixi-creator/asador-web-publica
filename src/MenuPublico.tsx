@@ -61,16 +61,18 @@ export function MenuPublico() {
   return (
     <div className="min-h-screen bg-stone-100 text-stone-800 pb-16 flex flex-col justify-between">
       <div>
-        {/* Cabecera Adaptativa con tu Logotipo de Supabase */}
-        <header className="bg-stone-900 text-white py-8 px-4 text-center shadow-md flex flex-col items-center gap-3">
-          <img 
-            src="https://vhaxjxtzzgfiqfltzonl.supabase.co/storage/v1/object/public/logos/Logo%20Asador%20Parla%20Este%20.jpg" 
-            alt="Logo Asador Parla Este" 
-            className="w-20 h-20 md:w-24 md:h-24 object-cover rounded-full border-2 border-amber-600 shadow-md bg-white"
-          />
-          <div>
-            <h1 className="text-2xl md:text-4xl font-bold tracking-wide">Asador Parla Este</h1>
-            <p className="text-stone-400 text-xs md:text-sm mt-1">Descubre nuestra carta y especialidades</p>
+        {/* Cabecera Adaptativa: Logotipo alineado a la izquierda del texto */}
+        <header className="bg-stone-900 text-white py-6 px-4 shadow-md">
+          <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-4 text-center sm:text-left">
+            <img 
+              src="https://vhaxjxtzzgfiqfltzonl.supabase.co/storage/v1/object/public/logos/Logo%20Asador%20Parla%20Este%20.jpg" 
+              alt="Logo Asador Parla Este" 
+              className="w-16 h-16 md:w-20 md:h-20 object-cover rounded-full border-2 border-amber-600 shadow-md bg-white shrink-0"
+            />
+            <div>
+              <h1 className="text-2xl md:text-3xl font-bold tracking-wide">Asador Parla Este</h1>
+              <p className="text-stone-400 text-xs md:text-sm mt-0.5">Descubre nuestra carta y especialidades</p>
+            </div>
           </div>
         </header>
 
