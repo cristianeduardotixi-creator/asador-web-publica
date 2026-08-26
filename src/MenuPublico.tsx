@@ -123,7 +123,7 @@ export function MenuPublico() {
                     <div>
                       <h2 className="font-bold text-stone-900 text-base leading-snug">{p.name}</h2>
                       {p.description && (
-                        <p className="text-xs text-stone-500 mt-1 line-clamp-4 leading-relaxed">
+                        <p className="text-xs text-stone-500 mt-1 line-clamp-5 leading-relaxed">
                           {p.description}
                         </p>
                       )}
