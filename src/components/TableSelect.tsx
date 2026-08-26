@@ -59,6 +59,7 @@ export function TableSelect({ onSelect }: { onSelect: (t: RestaurantTable) => vo
           <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3">
             {tables
               .filter((t) => t.section === section)
+              .sort((a, b) => a.name.localeCompare(b.name, undefined, { numeric: true, sensitivity: 'base' }))
               .map((t) => (
                 <TableCard key={t.id} t={t} tables={tables} tableOrders={tableOrders} onSelect={handleSelect} />
               ))}
