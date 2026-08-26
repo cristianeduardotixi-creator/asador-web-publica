@@ -119,11 +119,11 @@ export function MenuPublico() {
                       <ImageIcon className="w-8 h-8 text-stone-400" />
                     </div>
                   )}
-                  <div className="flex-1 min-w-0 flex flex-col justify-between h-full">
+                  <div className="flex-1 min-w-0 flex flex-col justify-between h-full min-h-[110px]">
                     <div>
                       <h2 className="font-bold text-stone-900 text-base leading-snug">{p.name}</h2>
                       {p.description && (
-                        <p className="text-xs text-stone-500 mt-1 line-clamp-3 leading-relaxed">
+                        <p className="text-xs text-stone-500 mt-1 line-clamp-4 leading-relaxed">
                           {p.description}
                         </p>
                       )}
