@@ -120,7 +120,21 @@ export function OrderScreen({
   const pendingTotal = activeOrder?.total ?? 0;
   const blockedByNetwork = networkEnforce === 'strict' && network?.checked && !network.onLan;
 
-  const sortedCats = useMemo(() => [...categories].sort((a, b) => a.sort_order - b.sort_order), [categories]);
+  // Ocultamos de la barra superior principal: "Cafés y tés" y "Envases / Táperes" (con sus variantes)
+  const sortedCats = useMemo(() => {
+    return [...categories]
+      .filter((c) => {
+        const name = c.name.toLowerCase();
+        return (
+          !name.includes('cafés y tés') &&
+          !name.includes('cafes y tes') &&
+          !name.includes('envase') &&
+          !name.includes('táper') &&
+          !name.includes('taper')
+        );
+      })
+      .sort((a, b) => a.sort_order - b.sort_order);
+  }, [categories]);
 
   useEffect(() => {
     if (!activeCat && sortedCats.length > 0) {
@@ -144,7 +158,7 @@ export function OrderScreen({
         return name.includes('2l') || name.includes('jarra personal');
       }
       if (sub === 'bote') {
-        return name.startsWith('bote ') || name.includes('coca cola') && !name.includes('2l') || name.includes('nestea') || name.includes('aquarius') || name.includes('sprite') || name.includes('fanta');
+        return name.startsWith('bote ') || (name.includes('coca cola') && !name.includes('2l')) || name.includes('nestea') || name.includes('aquarius') || name.includes('sprite') || name.includes('fanta');
       }
       if (sub === 'tercio') {
         return name.includes('tercio') && !name.includes('sin alcohol') && !name.includes('botellín');
