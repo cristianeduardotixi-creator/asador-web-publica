@@ -65,7 +65,6 @@ const DRINK_SUBCATEGORIES = [
   'Tés',
   'Batidos',
   'Varios',
-  'Envases / Táperes',
 ];
 
 export function OrderScreen({
@@ -121,18 +120,12 @@ export function OrderScreen({
   const pendingTotal = activeOrder?.total ?? 0;
   const blockedByNetwork = networkEnforce === 'strict' && network?.checked && !network.onLan;
 
-  // Ocultamos de la barra superior principal: "Cafés y tés" y "Envases / Táperes" para que no se dupliquen fuera
+  // Solo ocultamos de arriba "Cafés y tés" (porque ya está dentro de bebidas). Envases vuelve arriba al lado de Postres.
   const sortedCats = useMemo(() => {
     return [...categories]
       .filter((c) => {
         const name = c.name.toLowerCase();
-        return (
-          !name.includes('cafés y tés') &&
-          !name.includes('cafes y tes') &&
-          !name.includes('envase') &&
-          !name.includes('táper') &&
-          !name.includes('taper')
-        );
+        return !name.includes('cafés y tés') && !name.includes('cafes y tes');
       })
       .sort((a, b) => a.sort_order - b.sort_order);
   }, [categories]);
@@ -143,21 +136,11 @@ export function OrderScreen({
     }
   }, [sortedCats, activeCat]);
 
-  // Permitir mostrar productos tanto si están en la categoría de bebidas como si el usuario pulsa en la subcategoría específica
   const activeCategoryObj = sortedCats.find((c) => c.id === activeCat);
   const isDrinksCategory = activeCategoryObj?.name.toLowerCase() === 'bebidas';
 
   const filteredProducts = useMemo(() => {
     if (!activeCat) return [];
-    
-    // Si selecciona "Envases / Táperes" en la subcategoría de bebidas, buscamos también por su categoría real en la BD
-    if (isDrinksCategory && selectedDrinkSub === 'Envases / Táperes') {
-      return products.filter((p) => {
-        const name = p.name.toLowerCase();
-        return p.available && (name.includes('taper') || name.includes('táper') || name.includes('envase'));
-      });
-    }
-
     const baseList = products.filter((p) => p.category_id === activeCat && p.available);
     if (!isDrinksCategory || selectedDrinkSub === 'Todos') return baseList;
 
@@ -190,9 +173,6 @@ export function OrderScreen({
       }
       if (sub === 'varios') {
         return name.includes('agua');
-      }
-      if (sub.includes('envases')) {
-        return name.includes('taper') || name.includes('táper') || name.includes('envase');
       }
       return true;
     });
