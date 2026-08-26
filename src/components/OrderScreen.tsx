@@ -54,6 +54,19 @@ const lineUnitPrice = (l: CartLine) => l.product.price + (l.takeaway ? TAKEAWAY_
 
 const NOTE_SUGGESTIONS = ['Poco hecho', 'Muy hecho', 'Sin cebolla', 'Salsa aparte', 'Sin sal', 'Bien cocido'];
 
+const DRINK_SUBCATEGORIES = [
+  'Todos',
+  'Bebidas grandes',
+  'Bote',
+  'Tercio',
+  'Botellín',
+  'Cubos',
+  'Cafés',
+  'Tés',
+  'Batidos',
+  'Varios',
+];
+
 export function OrderScreen({
   table,
   onBack,
@@ -68,6 +81,7 @@ export function OrderScreen({
   const { categories, products, waiter, waiters, printers, settings, network, networkEnforce, tables, tableOrders, refreshOrders } = useApp();
   const isAdmin = role === 'admin';
   const [activeCat, setActiveCat] = useState<string | null>(null);
+  const [selectedDrinkSub, setSelectedDrinkSub] = useState<string>('Todos');
   const [selectedWaiter, setSelectedWaiter] = useState<Waiter | null>(waiter);
   const [cart, setCart] = useState<CartLine[]>([]);
   const [covers] = useState(table.seats > 4 ? 4 : table.seats);
@@ -114,10 +128,48 @@ export function OrderScreen({
     }
   }, [sortedCats, activeCat]);
 
-  const filteredProducts = useMemo(
-    () => activeCat ? products.filter((p) => p.category_id === activeCat && p.available) : [],
-    [products, activeCat],
-  );
+  // Detectar si la categoría activa es "Bebidas"
+  const activeCategoryObj = sortedCats.find((c) => c.id === activeCat);
+  const isDrinksCategory = activeCategoryObj?.name.toLowerCase() === 'bebidas';
+
+  const filteredProducts = useMemo(() => {
+    if (!activeCat) return [];
+    const baseList = products.filter((p) => p.category_id === activeCat && p.available);
+    if (!isDrinksCategory || selectedDrinkSub === 'Todos') return baseList;
+
+    const sub = selectedDrinkSub.toLowerCase();
+    return baseList.filter((p) => {
+      const name = p.name.toLowerCase();
+      if (sub === 'bebidas grandes') {
+        return name.includes('2l') || name.includes('jarra personal');
+      }
+      if (sub === 'bote') {
+        return name.startsWith('bote ') || name.includes('coca cola') && !name.includes('2l') || name.includes('nestea') || name.includes('aquarius') || name.includes('sprite') || name.includes('fanta');
+      }
+      if (sub === 'tercio') {
+        return name.includes('tercio') && !name.includes('sin alcohol') && !name.includes('botellín');
+      }
+      if (sub === 'botellín') {
+        return name.includes('botellín') || name.includes('botellin');
+      }
+      if (sub === 'cubos') {
+        return name.includes('cubo');
+      }
+      if (sub === 'cafés') {
+        return name.includes('café') || name.includes('cafe');
+      }
+      if (sub === 'tés') {
+        return name.includes('té') || name.includes('tea') || name.includes('manzanilla') || name.includes('poleo') || name.includes('tila') || name.includes('jengibre');
+      }
+      if (sub === 'batidos') {
+        return name.includes('batido');
+      }
+      if (sub === 'varios') {
+        return name.includes('agua');
+      }
+      return true;
+    });
+  }, [products, activeCat, isDrinksCategory, selectedDrinkSub]);
 
   const cartTotal = useMemo(
     () => cart.reduce((s, l) => s + lineUnitPrice(l) * l.quantity, 0),
@@ -454,7 +506,7 @@ export function OrderScreen({
         </div>
       )}
 
-      {/* === BODY: horizontal categories + product grid (top) + ticket (bottom) === */}
+      {/* === BODY: horizontal categories + subcategories + product grid (top) + ticket (bottom) === */}
       <div className="flex-1 flex flex-col overflow-hidden">
         {/* Horizontal scrollable category bar */}
         <div className="flex items-center gap-1.5 overflow-x-auto touch-scroll bg-stone-800 px-2 py-2 shrink-0 no-scrollbar">
@@ -464,7 +516,10 @@ export function OrderScreen({
             return (
               <button
                 key={c.id}
-                onClick={() => setActiveCat(c.id)}
+                onClick={() => {
+                  setActiveCat(c.id);
+                  setSelectedDrinkSub('Todos');
+                }}
                 className={cn(
                   'flex items-center gap-1.5 px-3.5 py-2 rounded-full font-medium text-sm whitespace-nowrap transition-all touch-tap shrink-0',
                   isActive ? cn(catColor(c).active, 'scale-105') : 'bg-stone-700 text-stone-300 hover:bg-stone-600',
@@ -478,11 +533,34 @@ export function OrderScreen({
           })}
         </div>
 
+        {/* Barra de subcategorías rápida exclusiva para Bebidas */}
+        {isDrinksCategory && (
+          <div className="flex items-center gap-1.5 overflow-x-auto touch-scroll bg-amber-50 border-b border-amber-200 px-3 py-2 shrink-0 no-scrollbar">
+            {DRINK_SUBCATEGORIES.map((sub) => {
+              const isSubActive = selectedDrinkSub === sub;
+              return (
+                <button
+                  key={sub}
+                  onClick={() => setSelectedDrinkSub(sub)}
+                  className={cn(
+                    'px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap transition-all touch-tap shrink-0',
+                    isSubActive
+                      ? 'bg-amber-600 text-white shadow-sm'
+                      : 'bg-white text-stone-700 border border-stone-200 hover:bg-amber-100',
+                  )}
+                >
+                  {sub}
+                </button>
+              );
+            })}
+          </div>
+        )}
+
         {/* Product grid */}
         <div className="flex-1 overflow-y-auto touch-scroll bg-stone-50">
           {filteredProducts.length === 0 ? (
             <div className="flex items-center justify-center py-20 text-stone-400 text-sm">
-              No hay productos en esta categoría.
+              No hay productos en esta selección.
             </div>
           ) : (
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 p-2">
