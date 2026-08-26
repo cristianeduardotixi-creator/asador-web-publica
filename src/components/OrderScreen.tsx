@@ -120,7 +120,6 @@ export function OrderScreen({
   const pendingTotal = activeOrder?.total ?? 0;
   const blockedByNetwork = networkEnforce === 'strict' && network?.checked && !network.onLan;
 
-  // Solo ocultamos de arriba "Cafés y tés" (porque ya está dentro de bebidas). Envases vuelve arriba al lado de Postres.
   const sortedCats = useMemo(() => {
     return [...categories]
       .filter((c) => {
@@ -147,20 +146,25 @@ export function OrderScreen({
     const sub = selectedDrinkSub.toLowerCase();
     return baseList.filter((p) => {
       const name = p.name.toLowerCase();
+      
+      // Evitar que los cubos aparezcan en botellines o tercios
+      const isCubo = name.includes('cubo');
+      if (isCubo && sub !== 'cubos') return false;
+
       if (sub === 'bebidas grandes') {
         return name.includes('2l') || name.includes('jarra personal');
       }
       if (sub === 'bote') {
-        return name.startsWith('bote ') || (name.includes('coca cola') && !name.includes('2l')) || name.includes('nestea') || name.includes('aquarius') || name.includes('sprite') || name.includes('fanta');
+        return (name.startsWith('bote ') || (name.includes('coca cola') && !name.includes('2l')) || name.includes('nestea') || name.includes('aquarius') || name.includes('sprite') || name.includes('fanta')) && !isCubo;
       }
       if (sub === 'tercio') {
-        return name.includes('tercio') && !name.includes('sin alcohol') && !name.includes('botellín');
+        return name.includes('tercio') && !name.includes('sin alcohol') && !name.includes('botellín') && !isCubo;
       }
       if (sub === 'botellín') {
-        return name.includes('botellín') || name.includes('botellin');
+        return (name.includes('botellín') || name.includes('botellin')) && !isCubo;
       }
       if (sub === 'cubos') {
-        return name.includes('cubo');
+        return isCubo;
       }
       if (sub === 'cafés') {
         return name.includes('café') || name.includes('cafe');
