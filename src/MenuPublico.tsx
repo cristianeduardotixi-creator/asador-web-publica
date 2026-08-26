@@ -18,11 +18,24 @@ export function MenuPublico() {
           supabase.from('products').select('*').eq('available', true).order('sort_order', { ascending: true })
         ]);
 
-        if (catRes.data) setCategories(catRes.data);
-        if (prodRes.data) setProducts(prodRes.data);
-        if (catRes.data && catRes.data.length > 0) {
-          setActiveCat(catRes.data[0].id);
+        if (catRes.data) {
+          // Filtramos para ocultar "Envases / Táperes" y "Cafés y tés" de la carta pública
+          const filteredCats = catRes.data.filter(c => {
+            const name = c.name.toLowerCase();
+            return (
+              !name.includes('envase') &&
+              !name.includes('táper') &&
+              !name.includes('taper') &&
+              !name.includes('cafés y tés') &&
+              !name.includes('cafes y tes')
+            );
+          });
+          setCategories(filteredCats);
+          if (filteredCats.length > 0) {
+            setActiveCat(filteredCats[0].id);
+          }
         }
+        if (prodRes.data) setProducts(prodRes.data);
       } catch (e) {
         console.error('Error cargando carta pública', e);
       } finally {
@@ -48,10 +61,17 @@ export function MenuPublico() {
   return (
     <div className="min-h-screen bg-stone-100 text-stone-800 pb-16 flex flex-col justify-between">
       <div>
-        {/* Cabecera Adaptativa */}
-        <header className="bg-stone-900 text-white py-8 px-4 text-center shadow-md">
-          <h1 className="text-2xl md:text-4xl font-bold tracking-wide">Asador Parla Este</h1>
-          <p className="text-stone-400 text-xs md:text-sm mt-1">Descubre nuestra carta y especialidades</p>
+        {/* Cabecera Adaptativa con tu Logotipo de Supabase */}
+        <header className="bg-stone-900 text-white py-8 px-4 text-center shadow-md flex flex-col items-center gap-3">
+          <img 
+            src="https://vhaxjxtzzgfiqfltzonl.supabase.co/storage/v1/object/public/logos/Logo%20Asador%20Parla%20Este%20.jpg" 
+            alt="Logo Asador Parla Este" 
+            className="w-20 h-20 md:w-24 md:h-24 object-cover rounded-full border-2 border-amber-600 shadow-md bg-white"
+          />
+          <div>
+            <h1 className="text-2xl md:text-4xl font-bold tracking-wide">Asador Parla Este</h1>
+            <p className="text-stone-400 text-xs md:text-sm mt-1">Descubre nuestra carta y especialidades</p>
+          </div>
         </header>
 
         {/* Categorías */}
