@@ -19,7 +19,6 @@ export function MenuPublico() {
         ]);
 
         if (catRes.data) {
-          // Filtramos para ocultar "Envases / Táperes" y "Cafés y tés" de la carta pública
           const filteredCats = catRes.data.filter(c => {
             const name = c.name.toLowerCase();
             return (
@@ -112,7 +111,7 @@ export function MenuPublico() {
                     <img 
                       src={p.image_url} 
                       alt={p.name} 
-                      className="w-24 h-24 md:w-28 md:h-28 object-cover rounded-xl border border-stone-100 shrink-0 shadow-inner" 
+                      className="w-24 h-24 md:w-28 md:h-28 object-contain bg-stone-50 rounded-xl border border-stone-100 shrink-0 shadow-inner p-1" 
                     />
                   ) : (
                     <div className="w-24 h-24 md:w-28 md:h-28 rounded-xl bg-stone-100 flex items-center justify-center text-stone-400 shrink-0">
@@ -123,7 +122,7 @@ export function MenuPublico() {
                     <div>
                       <h2 className="font-bold text-stone-900 text-base leading-snug">{p.name}</h2>
                       {p.description && (
-                        <p className="text-xs text-stone-500 mt-1 line-clamp-6 leading-relaxed">
+                        <p className="text-xs text-stone-500 mt-1 line-clamp-4 leading-relaxed">
                           {p.description}
                         </p>
                       )}
