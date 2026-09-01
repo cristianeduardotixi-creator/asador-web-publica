@@ -2,13 +2,14 @@ import { useState, useEffect } from 'react';
 import { supabase } from '@/lib/supabase';
 import { formatEUR } from '@/lib/format';
 import type { Category, Product } from '@/lib/types';
-import { Image as ImageIcon, Utensils, ShieldAlert } from 'lucide-react';
+import { Image as ImageIcon, Utensils, ShieldAlert, X } from 'lucide-react';
 
 export function MenuPublico() {
   const [categories, setCategories] = useState<Category[]>([]);
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [activeCat, setActiveCat] = useState<string | null>(null);
+  const [modalImage, setModalImage] = useState<{ url: string; name: string } | null>(null);
 
   useEffect(() => {
     async function loadMenu() {
@@ -108,11 +109,20 @@ export function MenuPublico() {
                   className="bg-white rounded-2xl p-4 shadow-sm border border-stone-200 flex gap-4 items-start transition-all hover:shadow-md"
                 >
                   {p.image_url ? (
-                    <img 
-                      src={p.image_url} 
-                      alt={p.name} 
-                      className="w-24 h-24 md:w-28 md:h-28 object-contain bg-stone-50 rounded-xl border border-stone-100 shrink-0 shadow-inner p-1" 
-                    />
+                    <div 
+                      onClick={() => setModalImage({ url: p.image_url!, name: p.name })}
+                      className="w-24 h-24 md:w-28 md:h-28 rounded-xl bg-stone-50 border border-stone-100 shrink-0 shadow-inner p-1 cursor-pointer group relative overflow-hidden"
+                      title="Haz clic para ampliar"
+                    >
+                      <img 
+                        src={p.image_url} 
+                        alt={p.name} 
+                        className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105" 
+                      />
+                      <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <span className="text-[10px] bg-black/70 text-white px-1.5 py-0.5 rounded-md font-medium">Ampliar</span>
+                      </div>
+                    </div>
                   ) : (
                     <div className="w-24 h-24 md:w-28 md:h-28 rounded-xl bg-stone-100 flex items-center justify-center text-stone-400 shrink-0">
                       <ImageIcon className="w-8 h-8 text-stone-400" />
@@ -139,6 +149,35 @@ export function MenuPublico() {
           )}
         </main>
       </div>
+
+      {/* Modal para ver la imagen en grande */}
+      {modalImage && (
+        <div 
+          onClick={() => setModalImage(null)}
+          className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 animate-fadeIn"
+        >
+          <div 
+            onClick={(e) => e.stopPropagation()}
+            className="bg-white rounded-2xl max-w-lg w-full p-4 relative shadow-2xl flex flex-col items-center animate-slideUp"
+          >
+            <button 
+              onClick={() => setModalImage(null)}
+              className="absolute top-3 right-3 p-2 rounded-full bg-stone-100 text-stone-600 hover:bg-stone-200 transition-colors"
+            >
+              <X className="w-5 h-5" />
+            </button>
+            <h3 className="font-bold text-lg text-stone-900 mb-3 text-center pr-8">{modalImage.name}</h3>
+            <div className="w-full max-h-[70vh] flex items-center justify-center bg-stone-50 rounded-xl p-2 border border-stone-100 overflow-hidden">
+              <img 
+                src={modalImage.url} 
+                alt={modalImage.name} 
+                className="max-h-[65vh] w-auto object-contain rounded-lg"
+              />
+            </div>
+            <p className="text-xs text-stone-400 mt-3 text-center">Haz clic fuera de la foto o en la X para cerrar</p>
+          </div>
+        </div>
+      )}
 
       {/* Pie de página con la Leyenda de Alérgenos y Nota Legal */}
       <footer className="max-w-4xl mx-auto mt-12 px-6 text-center text-xs text-stone-500 border-t border-stone-200 pt-6 space-y-3">
