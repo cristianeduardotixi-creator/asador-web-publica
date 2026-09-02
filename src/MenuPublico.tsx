@@ -59,7 +59,6 @@ export function MenuPublico() {
   const filteredProducts = products.filter(p => p.category_id === activeCat);
   const currentCategory = categories.find(c => c.id === activeCat);
   
-  // Detectamos si la categoría actual es Bebidas
   const isBebidasCategory = currentCategory?.name.toLowerCase().includes('bebida');
 
   return (
@@ -106,25 +105,42 @@ export function MenuPublico() {
               No hay productos disponibles en esta categoría actualmente.
             </div>
           ) : isBebidasCategory ? (
-            /* LISTADO CONTINUO Y ORDENADO PARA BEBIDAS */
+            /* LISTADO DE BEBIDAS CON TÍTULOS SEPARADORES */
             <div className="bg-white rounded-2xl shadow-sm border border-stone-200 p-6 md:p-8">
               <h2 className="text-center font-bold tracking-widest text-stone-800 text-base uppercase mb-6 pb-3 border-b-2 border-amber-600">
                 {currentCategory?.name}
               </h2>
               <div className="divide-y divide-stone-100">
-                {filteredProducts.map(p => (
-                  <div key={p.id} className="py-3.5 flex items-center justify-between gap-4 first:pt-0 last:pb-0">
-                    <div className="pr-4">
-                      <h3 className="font-medium text-stone-800 text-base">{p.name}</h3>
-                      {p.description && (
-                        <p className="text-xs text-stone-400 mt-0.5">{p.description}</p>
-                      )}
+                {filteredProducts.map(p => {
+                  // Si el nombre del producto empieza por "SECCION:" o ponemos una marca, lo convertimos en un título separador elegante.
+                  // O alternativamente, si el producto no tiene precio o lo detectamos como título:
+                  const isSectionHeader = p.name.toUpperCase().startsWith('SECCION:');
+                  const headerTitle = isSectionHeader ? p.name.replace('SECCION:', '').trim() : null;
+
+                  if (isSectionHeader) {
+                    return (
+                      <div key={p.id} className="pt-8 pb-3 first:pt-0">
+                        <h3 className="text-center font-bold tracking-widest text-amber-700 text-sm uppercase py-2 bg-stone-50 rounded-lg border border-stone-200 shadow-xs">
+                          {headerTitle}
+                        </h3>
+                      </div>
+                    );
+                  }
+
+                  return (
+                    <div key={p.id} className="py-3.5 flex items-center justify-between gap-4 first:pt-0 last:pb-0">
+                      <div className="pr-4">
+                        <h3 className="font-medium text-stone-800 text-base">{p.name}</h3>
+                        {p.description && (
+                          <p className="text-xs text-stone-400 mt-0.5">{p.description}</p>
+                        )}
+                      </div>
+                      <span className="font-bold text-stone-900 text-base whitespace-nowrap">
+                        {formatEUR(p.price)}
+                      </span>
                     </div>
-                    <span className="font-bold text-stone-900 text-base whitespace-nowrap">
-                      {formatEUR(p.price)}
-                    </span>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           ) : (
