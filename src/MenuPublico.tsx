@@ -105,15 +105,10 @@ export function MenuPublico() {
               No hay productos disponibles en esta categoría actualmente.
             </div>
           ) : isBebidasCategory ? (
-            /* LISTADO DE BEBIDAS CON TÍTULOS SEPARADORES */
+            /* LISTADO DE BEBIDAS CON TÍTULOS SEPARADORES (SIN TÍTULO REPETIDO ARRIBA) */
             <div className="bg-white rounded-2xl shadow-sm border border-stone-200 p-6 md:p-8">
-              <h2 className="text-center font-bold tracking-widest text-stone-800 text-base uppercase mb-6 pb-3 border-b-2 border-amber-600">
-                {currentCategory?.name}
-              </h2>
               <div className="divide-y divide-stone-100">
                 {filteredProducts.map(p => {
-                  // Si el nombre del producto empieza por "SECCION:" o ponemos una marca, lo convertimos en un título separador elegante.
-                  // O alternativamente, si el producto no tiene precio o lo detectamos como título:
                   const isSectionHeader = p.name.toUpperCase().startsWith('SECCION:');
                   const headerTitle = isSectionHeader ? p.name.replace('SECCION:', '').trim() : null;
 
