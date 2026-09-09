@@ -14,12 +14,11 @@
     <!-- HEADER / NAVEGACIÓN -->
     <header class="fixed top-0 left-0 right-0 z-50 bg-stone-900/90 backdrop-blur-md text-white shadow-md">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <!-- Logo del Restaurante -->
             <a href="#" class="flex items-center gap-3">
+                <!-- AQUÍ COLOCAS TU LOGO -->
+                <img src="https://vhaxjxtzzgfiqfltzonl.supabase.co/storage/v1/object/public/logos/Logo%20Asador%20Parla%20Este%20.jpg" alt="Logo Asador Parla Este" class="h-10 w-10 object-contain">
                 <span class="text-xl font-bold tracking-wider text-amber-500">ASADOR PARLA ESTE</span>
             </a>
-
-            <!-- Menú de Navegación -->
             <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
                 <a href="#inicio" class="hover:text-amber-400 transition">Inicio</a>
                 <a href="#carta" class="hover:text-amber-400 transition">Platos a la carta</a>
@@ -28,8 +27,6 @@
                 <a href="#reservas" class="hover:text-amber-400 transition">Reservas</a>
                 <a href="#contacto" class="hover:text-amber-400 transition">Contacto</a>
             </nav>
-
-            <!-- Botón CTA Rápido -->
             <a href="#reservas" class="hidden sm:inline-block bg-amber-600 hover:bg-amber-700 text-white px-5 py-2.5 rounded-full text-sm font-semibold transition shadow-lg">
                 Reservar Mesa
             </a>
@@ -39,10 +36,9 @@
     <!-- SECCIÓN DE INICIO (HERO) -->
     <section id="inicio" class="relative h-screen flex items-center justify-center bg-stone-900 text-white pt-20">
         <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1920&auto=format&fit=crop" alt="Asador Parla Este" class="w-full h-full object-cover opacity-40">
+            <img src="https://vhaxjxtzzgfiqfltzonl.supabase.co/storage/v1/object/public/logos/ParrilladaXXL.jfif" alt="Asador Parla Este" class="w-full h-full object-cover opacity-40">
         </div>
         <div class="relative z-10 text-center max-w-3xl px-6">
-            <span class="text-amber-400 uppercase tracking-widest font-semibold text-sm mb-3 block">Calle Ámsterdam 11, Parla</span>
             <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-6">El verdadero sabor a la brasa</h1>
             <p class="text-lg md:text-xl text-stone-200 mb-8">Disfruta de la mejor carne y platos tradicionales en Asador Parla Este.</p>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
@@ -55,82 +51,237 @@
     <!-- SECCIÓN DE PLATOS A LA CARTA -->
     <section id="carta" class="py-24 max-w-7xl mx-auto px-6">
         <div class="text-center max-w-2xl mx-auto mb-16">
-            <span class="text-amber-600 font-semibold text-sm uppercase tracking-wider">Nuestra Propuesta</span>
-            <h2 class="text-3xl md:text-4xl font-bold text-stone-900 mt-2">Platos a la Carta</h2>
-            <p class="text-stone-600 mt-4">Una selección de nuestras mejores carnes y especialidades de la casa.</p>
+            
+            <h2 class="text-3xl md:text-4xl font-bold text-amber-600 mt-2">Nuestras especialidades</h2>
+            <p class="text-stone-600 mt-4">Expertos en parrilladas donde el fuego hace la magia. Jugosas, bien asadas y con ese toque ahumado que las hace únicas.</p>
         </div>
-
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition border border-stone-100">
-                <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=800&auto=format&fit=crop" alt="Chuletón a la Brasa" class="w-full h-56 object-cover">
+                <img src="https://vhaxjxtzzgfiqfltzonl.supabase.co/storage/v1/object/public/logos/ParrilladaXXL.jfif" alt="Parrillada XXL" class="w-full h-56 object-cover">
                 <div class="p-6">
                     <div class="flex justify-between items-center mb-2">
-                        <h3 class="text-xl font-bold text-stone-900">Chuletón a la Brasa</h3>
-                        <span class="text-amber-600 font-bold text-lg">24.50€</span>
+                        <h3 class="text-xl font-bold text-stone-900">Parrillada XXL</h3>
+                        <span class="text-amber-600 font-bold text-lg">32.00€</span>
                     </div>
-                    <p class="text-stone-600 text-sm">Carne seleccionada de primera calidad hecha a la parrilla con su punto exacto de brasa.</p>
+                    <p class="text-stone-600 text-sm">1/4 de pollo, chuleta, churrasco, panceta, butifarra, chorizo rojo y criollo, maduro frito, mote, patata, salsa de maní, tripitas, ensalada, pimiento de padrón y tostado (1,5,6,7,9)
+                        (para 2 personas).</p>
                 </div>
             </div>
-
             <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition border border-stone-100">
-                <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=800&auto=format&fit=crop" alt="Pollo Asado Especial" class="w-full h-56 object-cover">
+                <img src="https://vhaxjxtzzgfiqfltzonl.supabase.co/storage/v1/object/public/logos/parrillada%20m.jpeg" alt="Parrillada M" class="w-full h-56 object-cover">
                 <div class="p-6">
                     <div class="flex justify-between items-center mb-2">
-                        <h3 class="text-xl font-bold text-stone-900">Pollo Asado Especial</h3>
-                        <span class="text-amber-600 font-bold text-lg">12.00€</span>
+                        <h3 class="text-xl font-bold text-stone-900">Parrillada M</h3>
+                        <span class="text-amber-600 font-bold text-lg">16.90€</span>
                     </div>
-                    <p class="text-stone-600 text-sm">Pollo jugoso marinado con especias secretas de la casa y dorado a la leña.</p>
+                    <p class="text-stone-600 text-sm">Pollo, chuleta, chorizo rojo, maduro frito, mote, patata, salsa de maní, tripitas, ensalada y pimiento de padrón (1,5,6,7,9).</p>
                 </div>
             </div>
-
             <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition border border-stone-100">
-                <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=800&auto=format&fit=crop" alt="Papas con Salsa de la Casa" class="w-full h-56 object-cover">
+                <img src="https://vhaxjxtzzgfiqfltzonl.supabase.co/storage/v1/object/public/logos/Parrillada%20S.jpeg" alt="Parrillada S" class="w-full h-56 object-cover">
                 <div class="p-6">
                     <div class="flex justify-between items-center mb-2">
-                        <h3 class="text-xl font-bold text-stone-900">Papas con Salsa de la Casa</h3>
-                        <span class="text-amber-600 font-bold text-lg">5.50€</span>
+                        <h3 class="text-xl font-bold text-stone-900">Parrillada S</h3>
+                        <span class="text-amber-600 font-bold text-lg">13.50€</span>
                     </div>
-                    <p class="text-stone-600 text-sm">Acompañamiento perfecto y crujiente con nuestra salsa especial de la casa.</p>
+                    <p class="text-stone-600 text-sm">Pollo, chuleta, mote, patata, salsa de maní, tripitas, tostado y ensalada (1,5,6,7,9).</p>
                 </div>
             </div>
+            <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition border border-stone-100">
+                <img src="https://vhaxjxtzzgfiqfltzonl.supabase.co/storage/v1/object/public/logos/tripitas.jpg" alt="Tripitas" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-xl font-bold text-stone-900">Tripitas</h3>
+                        <span class="text-amber-600 font-bold text-lg">11.80€</span>
+                    </div>
+                    <p class="text-stone-600 text-sm">Tripas asadas, mote, patata, tostado, ensalada y salsa de maní (5, 7).</p>
+                </div>
+            </div>
+                </div> <!-- Fin del grid de parrilladas -->
+<!-- ========================================== -->
+        <!-- SEGUNDO TÍTULO: ENTRANTES (EN MEDIO) -->
+        <!-- ========================================== -->
+        <div class="text-center max-w-2xl mx-auto mb-12 mt-10">
+            
+            <h3 class="text-2xl md:text-3xl font-bold text-amber-600 mt-2">Entrantes</h3>
+            <p class="text-stone-600 mt-2">Para abrir el paladar.</p>
         </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition border border-stone-100">
+                <img src="https://vhaxjxtzzgfiqfltzonl.supabase.co/storage/v1/object/public/logos/Maduro%20con%20queso.jfif" alt="Maduro con queso" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-xl font-bold text-stone-900">Maduro con queso</h3>
+                        <span class="text-amber-600 font-bold text-lg">7.00€</span>
+                    </div>
+                    <p class="text-stone-600 text-sm">Plátano maduro frito con queso latino y ensalada (7).</p>
+                </div>
+            </div>
+            <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition border border-stone-100">
+                <img src="https://vhaxjxtzzgfiqfltzonl.supabase.co/storage/v1/object/public/logos/CHOCLO%20CON%20QUESO1.jpg" alt="Choclo con queso" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-xl font-bold text-stone-900">Choclo con queso</h3>
+                        <span class="text-amber-600 font-bold text-lg">5.80€</span>
+                    </div>
+                    <p class="text-stone-600 text-sm">Mazorca o maíz cocido, con queso latino (7).</p>
+                </div>
+            </div>
+            <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition border border-stone-100">
+                <img src="https://vhaxjxtzzgfiqfltzonl.supabase.co/storage/v1/object/public/logos/Chochos1.jfif" alt="Chochos con chicharrón" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-xl font-bold text-stone-900">Chochos con chicharrón</h3>
+                        <span class="text-amber-600 font-bold text-lg">12.50€</span>
+                    </div>
+                    <p class="text-stone-600 text-sm">Altramuces, maíz tostado, carne de cerdo y curtido (13).</p>
+                </div>
+            </div>
+            <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition border border-stone-100">
+                <img src="https://vhaxjxtzzgfiqfltzonl.supabase.co/storage/v1/object/public/logos/tripitas.jpg" alt="Mote con chicharrón" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-xl font-bold text-stone-900">Mote con chicharrón</h3>
+                        <span class="text-amber-600 font-bold text-lg">11.90€</span>
+                    </div>
+                    <p class="text-stone-600 text-sm">Maíz mote acompañado de jugosos trozos de cerdo frito y ensalada (0).</p>
+                </div>
+            </div>
+            <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition border border-stone-100">
+                <img src="https://vhaxjxtzzgfiqfltzonl.supabase.co/storage/v1/object/public/logos/bandera%20marinera1.jpg" alt="Patacones con queso
+                " class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-xl font-bold text-stone-900">Patacones con queso
+                        </h3>
+                        <span class="text-amber-600 font-bold text-lg">8.00€</span>
+                    </div>
+                    <p class="text-stone-600 text-sm">Medallones de plátano verde coronados con queso latino (7).</p>
+                </div>
+            </div>
+            <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition border border-stone-100">
+                <img src="https://vhaxjxtzzgfiqfltzonl.supabase.co/storage/v1/object/public/logos/bandera%20marinera1.jpg" alt="Mote pillo
+                " class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-xl font-bold text-stone-900">Mote pillo
+                        </h3>
+                        <span class="text-amber-600 font-bold text-lg">9.00€</span>
+                    </div>
+                    <p class="text-stone-600 text-sm">Maíz gigante salteado con cebolleta y coronado con huevo 
+                        frito (3, 7).</p>
+                </div>
+            </div>
+                </div> <!-- Fin del grid de entrantes -->
+
+<!-- ========================================== -->
+        <!-- TERCER TÍTULO: Mariscos (EN MEDIO) -->
+        <!-- ========================================== -->
+        <div class="text-center max-w-2xl mx-auto mb-12 mt-10">
+            
+            <h3 class="text-2xl md:text-3xl font-bold text-amber-600 mt-2">Mariscos</h3>
+            <p class="text-stone-600 mt-2">La auténtica frescura y sabor del mar.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition border border-stone-100">
+                <img src="https://vhaxjxtzzgfiqfltzonl.supabase.co/storage/v1/object/public/logos/Arroz%20con%20camaron.jfif" alt="Arroz con camarón" class="w-full h-56 object-cover">
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-xl font-bold text-stone-900">Arroz con camarón</h3>
+                        <span class="text-amber-600 font-bold text-lg">14.50€</span>
+                    </div>
+                    <p class="text-stone-600 text-sm">Arroz salteado al wok con gambas y verduras acompañado de plátano maduro frito y aguacate (1, 2, 6).</p>
+                </div>
+            </div>
+            <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition border border-stone-100">
+                <img src="https://vhaxjxtzzgfiqfltzonl.supabase.co/storage/v1/object/public/logos/parrillada%20m.jpeg" alt="Camarones apanados" class="w-full h-56 object-cover">
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-xl font-bold text-stone-900">Camarones apanados</h3>
+                        <span class="text-amber-600 font-bold text-lg">14.50€</span>
+                    </div>
+                    <p class="text-stone-600 text-sm">Crujientes gambas apanadas y doradas; servidas con patatas fritas, arroz blanco y una fresca ensalada de la casa (1, 2, 3).</p>
+                </div>
+            </div>
+            <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition border border-stone-100">
+                <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=800&auto=format&fit=crop" alt="Encocado de gamba" class="w-full h-56 object-cover">
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-xl font-bold text-stone-900">Encocado de gamba</h3>
+                        <span class="text-amber-600 font-bold text-lg">15.00€</span>
+                    </div>
+                    <p class="text-stone-600 text-sm">Camarón con un refrito especial de la casa, arroz blanco, patacones, aguacate y ensalada (2).</p>
+                </div>
+            </div>
+            <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition border border-stone-100">
+                <img src="https://vhaxjxtzzgfiqfltzonl.supabase.co/storage/v1/object/public/logos/tripitas.jpg" alt="Gamba al ajillo" class="w-full h-56 object-cover">
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-xl font-bold text-stone-900">Gamba al ajillo</h3>
+                        <span class="text-amber-600 font-bold text-lg">15.00€</span>
+                    </div>
+                    <p class="text-stone-600 text-sm">Gambas salteadas cón ajo, guindilla y cilantro fresco, acompañadas de patacones (2).</p>
+                </div>
+            </div>
+            <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition border border-stone-100">
+                <img src="https://vhaxjxtzzgfiqfltzonl.supabase.co/storage/v1/object/public/logos/bandera%20marinera1.jpg" alt="Bandera marinera
+                " class="w-full h-56 object-cover">
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-xl font-bold text-stone-900">Bandera marinera
+                        </h3>
+                        <span class="text-amber-600 font-bold text-lg">11.80€</span>
+                    </div>
+                    <p class="text-stone-600 text-sm">Ceviche de gamba, encebollado, ceviche de pescado con palomitas, tostado, aguacate, arroz blanco, chifles y limón (2, 4).</p>
+                </div>
+            </div>
+                </div> <!-- Fin del grid de mariscos -->
+
+
+
     </section>
 
-    <!-- SECCIÓN DE MENÚ DE VIERNES -->
+    <!-- SECCIÓN MENÚ DE VIERNES -->
     <section id="menu-viernes" class="py-24 bg-stone-100">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center max-w-2xl mx-auto mb-16">
-                <span class="text-amber-600 font-semibold text-sm uppercase tracking-wider">Especial Fin de Semana</span>
+                <span class="text-amber-600 font-semibold text-sm uppercase tracking-wider">Tradición Semanal</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-stone-900 mt-2">Menú de Viernes</h2>
-                <p class="text-stone-600 mt-4">Disfruta de nuestra propuesta especial diseñada exclusivamente para inaugurar el fin de semana.</p>
+                <p class="text-stone-600 mt-4">Nuestra propuesta exclusiva para empezar el fin de semana de la mejor manera.</p>
             </div>
-            <div class="bg-white rounded-3xl shadow-xl p-8 md:p-12 border border-stone-200 max-w-3xl mx-auto text-center">
-                <h3 class="text-2xl font-bold text-stone-900 mb-4">Primeros, Segundos y Postre Casero</h3>
-                <p class="text-stone-600 mb-6">Incluye bebida, pan y café. Pregunta por nuestras opciones fuera de carta orientadas a los sabores tradicionales de la brasa.</p>
-                <span class="text-3xl font-extrabold text-amber-600">16.90€ <span class="text-sm font-normal text-stone-500">/ por persona</span></span>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-stone-200">
+                    <h3 class="text-lg font-bold text-stone-900 mb-1">Primeros a elegir</h3>
+                    <p class="text-stone-600 text-sm">Sopa castellana, ensalada mixta de la casa o croquetas caseras de jamón.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-stone-200">
+                    <h3 class="text-lg font-bold text-stone-900 mb-1">Segundos a elegir</h3>
+                    <p class="text-stone-600 text-sm">Entrecot a la brasa, bacalao al horno o pollo de corral asado.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- SECCIÓN DE SALAS DE EVENTOS -->
+    <!-- SECCIÓN SALAS DE EVENTOS -->
     <section id="salas" class="py-24 max-w-7xl mx-auto px-6">
         <div class="text-center max-w-2xl mx-auto mb-16">
             <span class="text-amber-600 font-semibold text-sm uppercase tracking-wider">Celebraciones</span>
             <h2 class="text-3xl md:text-4xl font-bold text-stone-900 mt-2">Salas de Eventos</h2>
-            <p class="text-stone-600 mt-4">Espacios amplios y adaptados para celebrar tus reuniones familiares, cumpleaños o comidas de empresa.</p>
+            <p class="text-stone-600 mt-4">Espacios privados ideales para comidas familiares, de empresa o grandes grupos con menús personalizados.</p>
         </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="overflow-hidden rounded-2xl shadow-md h-72">
-                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=800&auto=format&fit=crop" alt="Salón Principal" class="w-full h-full object-cover">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div class="bg-white rounded-2xl overflow-hidden shadow-md border border-stone-100 p-6">
+                <h3 class="text-xl font-bold text-stone-900 mb-2">Salón Principal</h3>
+                <p class="text-stone-600 text-sm">Amplio y acogedor, perfecto para grandes celebraciones y eventos de empresa.</p>
             </div>
-            <div class="overflow-hidden rounded-2xl shadow-md h-72">
-                <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=800&auto=format&fit=crop" alt="Salón Privado" class="w-full h-full object-cover">
+            <div class="bg-white rounded-2xl overflow-hidden shadow-md border border-stone-100 p-6">
+                <h3 class="text-xl font-bold text-stone-900 mb-2">Privados y Reservados</h3>
+                <p class="text-stone-600 text-sm">Ambiente íntimo para reuniones familiares o cenas que requieran mayor privacidad.</p>
             </div>
         </div>
     </section>
 
-    <!-- SECCIÓN DE RESERVAS CONECTADA A SUPABASE (INCLUYE HORA) -->
+    <!-- SECCIÓN DE RESERVAS -->
     <section id="reservas" class="py-24 bg-stone-100">
         <div class="max-w-4xl mx-auto px-6">
             <div class="bg-white rounded-3xl shadow-xl p-8 md:p-12 border border-stone-200">
@@ -150,14 +301,14 @@
                         <input type="tel" id="telefono" required placeholder="Ej. +34 600 000 000" class="w-full px-4 py-3 rounded-lg border border-stone-300 focus:ring-2 focus:ring-amber-500 focus:outline-none">
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-stone-700 mb-2">Fecha</label>
+                        <label class="block text-sm font-medium text-stone-700 mb-2">Fecha de la reserva</label>
                         <input type="date" id="fecha" required class="w-full px-4 py-3 rounded-lg border border-stone-300 focus:ring-2 focus:ring-amber-500 focus:outline-none">
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-stone-700 mb-2">Hora</label>
+                        <label class="block text-sm font-medium text-stone-700 mb-2">Hora de la reserva</label>
                         <input type="time" id="hora" required class="w-full px-4 py-3 rounded-lg border border-stone-300 focus:ring-2 focus:ring-amber-500 focus:outline-none">
                     </div>
-                    <div class="md:col-span-2">
+                    <div>
                         <label class="block text-sm font-medium text-stone-700 mb-2">Número de personas</label>
                         <select id="personas" class="w-full px-4 py-3 rounded-lg border border-stone-300 focus:ring-2 focus:ring-amber-500 focus:outline-none bg-white">
                             <option value="1">1 Persona</option>
@@ -175,109 +326,29 @@
         </div>
     </section>
 
-    <!-- PANEL ADMINISTRADOR / TPV DE RESERVAS EN TIEMPO REAL -->
-    <section class="py-24 max-w-7xl mx-auto px-6">
-        <div class="bg-stone-900 text-white rounded-3xl shadow-2xl p-8 md:p-12 border border-stone-800">
-            <div class="flex flex-col md:flex-row justify-between items-center mb-8 gap-4 border-b border-stone-800 pb-6">
-                <div>
-                    <span class="text-amber-500 font-semibold text-sm uppercase tracking-wider">Panel TPV Admin</span>
-                    <h2 class="text-2xl md:text-3xl font-bold mt-1">Control de Reservas en Directo</h2>
-                </div>
-                <div class="flex items-center gap-2">
-                    <span class="h-3 w-3 bg-green-500 rounded-full animate-pulse"></span>
-                    <span class="text-xs text-stone-400">Conectado a Supabase (Tiempo Real)</span>
-                </div>
-            </div>
-
-            <div class="overflow-x-auto">
-                <table class="w-full text-left border-collapse">
-                    <thead>
-                        <tr class="border-b border-stone-800 text-stone-400 text-sm">
-                            <th class="py-3 px-4">Cliente</th>
-                            <th class="py-3 px-4">Teléfono</th>
-                            <th class="py-3 px-4">Fecha y Hora</th>
-                            <th class="py-3 px-4">Personas</th>
-                            <th class="py-3 px-4">Estado</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tabla-reservas" class="divide-y divide-stone-800 text-stone-200 text-sm">
-                        <tr>
-                            <td colspan="5" class="py-6 text-center text-stone-500">Cargando reservas...</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+    <!-- SECCIÓN DE CONTACTO -->
+    <section id="contacto" class="py-24 max-w-7xl mx-auto px-6 text-center">
+        <span class="text-amber-600 font-semibold text-sm uppercase tracking-wider">Ubicación</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-stone-900 mt-2 mb-4">Contacto</h2>
+        <p class="text-stone-600">Calle Ámsterdam 11, Parla (Madrid)</p>
+        <p class="text-stone-500 text-sm mt-2">Teléfono de reservas: +34 000 000 000</p>
     </section>
 
-    <!-- PIE DE PÁGINA -->
-    <footer id="contacto" class="bg-stone-900 text-stone-400 py-12 border-t border-stone-800">
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
-            <div>
-                <h3 class="text-white text-lg font-bold mb-3">Asador Parla Este</h3>
-                <p class="text-sm">Calle Ámsterdam 11, Parla, Madrid.</p>
-            </div>
-            <div>
-                <h3 class="text-white text-lg font-bold mb-3">Horarios</h3>
-                <p class="text-sm">Martes a Domingo: 12:00 PM - 23:00 PM</p>
-            </div>
-            <div>
-                <h3 class="text-white text-lg font-bold mb-3">Contacto</h3>
-                <p class="text-sm">Asador Parla Este</p>
-            </div>
-        </div>
-        <div class="max-w-7xl mx-auto px-6 text-center text-xs text-stone-500 mt-12 pt-6 border-t border-stone-800">
-            &copy; 2026 Asador Parla Este. Todos los derechos reservados.
-        </div>
+    <footer class="bg-stone-900 text-stone-400 py-12 border-t border-stone-800 text-center">
+        <p class="text-xs text-stone-500">&copy; 2026 Asador Parla Este. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- SCRIPT DE CONEXIÓN CON SUPABASE Y TIEMPO REAL -->
+    <!-- SCRIPT DE ENVÍO DIRECTO A SUPABASE -->
     <script>
-        // CONFIGURACIÓN DE SUPABASE
         const SUPABASE_URL = 'https://vhaxjxtzzgfiqfltzonl.supabase.co';
         const SUPABASE_ANON_KEY = 'sb_publishable_HOccfuTR9sj-bGj4I1S2GQ_A7gdumdw';
 
         const { createClient } = supabase;
         const _supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-        const tablaReservas = document.getElementById('tabla-reservas');
         const formReserva = document.getElementById('reserva-form');
         const mensajeEstado = document.getElementById('mensaje-estado');
 
-        // 1. CARGAR RESERVAS EXISTENTES AL INICIAR
-        async function cargarReservas() {
-            const { data, error } = await _supabase
-                .from('reservas')
-                .select('*')
-                .order('reservation_date', { ascending: true });
-
-            if (error) {
-                console.error('Error al cargar:', error);
-                tablaReservas.innerHTML = `<tr><td colspan="5" class="py-6 text-center text-red-400">Error al conectar con la base de datos.</td></tr>`;
-                return;
-            }
-
-            mostrarReservasEnTabla(data);
-        }
-
-        function mostrarReservasEnTabla(reservas) {
-            if (!reservas || reservas.length === 0) {
-                tablaReservas.innerHTML = `<tr><td colspan="5" class="py-6 text-center text-stone-500">No hay reservas registradas todavía.</td></tr>`;
-                return;
-            }
-
-            tablaReservas.innerHTML = reservas.map(r => `
-                <tr class="hover:bg-stone-800/50 transition">
-                    <td class="py-3 px-4 font-medium text-white">${r.customer_name}</td>
-                    <td class="py-3 px-4 text-stone-400">${r.customer_phone}</td>
-                    <td class="py-3 px-4">${r.reservation_date} ${r.reservation_time ? 'a las ' + r.reservation_time : ''}</td>
-                    <td class="py-3 px-4">${r.party_size} pers.</td>
-                    <td class="py-3 px-4"><span class="bg-amber-500/10 text-amber-500 px-2.5 py-1 rounded-full text-xs font-semibold">${r.status || 'Confirmada'}</span></td>
-                </tr>
-            `).join('');
-        }
-
-        // 2. ENVIAR NUEVA RESERVA DESDE EL FORMULARIO PÚBLICO
         formReserva.addEventListener('submit', async (e) => {
             e.preventDefault();
             const btn = document.getElementById('btn-submit');
@@ -288,16 +359,17 @@
                 customer_name: document.getElementById('nombre').value,
                 customer_phone: document.getElementById('telefono').value,
                 reservation_date: document.getElementById('fecha').value,
-                reservation_time: document.getElementById('hora').value,
+                reservation_time: document.getElementById('hora').value, // Sincronizado con tu TPV de React
+                hora: document.getElementById('hora').value,             // Sincronizado con tu tabla de Supabase
                 party_size: parseInt(document.getElementById('personas').value),
-                status: 'pending'
+                status: 'confirmed'
             };
 
-            const { error } = await _supabase.from('reservas').insert([nuevaReserva]);
+            const { error } = await _supabase.from('reservations').insert([nuevaReserva]);
 
             if (error) {
-                console.error(error);
-                mensajeEstado.textContent = 'Hubo un error al registrar la reserva. Asegúrate de que la columna "reservation_time" existe en tu tabla de Supabase.';
+                console.error("Error de Supabase:", error);
+                mensajeEstado.textContent = 'Error: ' + (error.message || JSON.stringify(error));
                 mensajeEstado.className = 'mt-4 text-sm font-medium text-red-600 block';
                 btn.disabled = false;
                 btn.textContent = 'Confirmar Reserva';
@@ -309,17 +381,6 @@
                 btn.textContent = 'Confirmar Reserva';
             }
         });
-
-        // 3. ACTUALIZACIÓN EN TIEMPO REAL (REALTIME)
-        _supabase
-            .channel('public:reservas')
-            .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'reservas' }, payload => {
-                cargarReservas();
-            })
-            .subscribe();
-
-        // Inicializar datos al cargar la página
-        cargarReservas();
     </script>
 </body>
 </html>

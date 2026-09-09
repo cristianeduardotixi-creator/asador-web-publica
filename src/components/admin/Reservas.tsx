@@ -55,7 +55,7 @@ export function Reservas() {
         </Card>
       ) : (
         <div className="space-y-3">
-          {reservations.sort((a, b) => a.reservation_time.localeCompare(b.reservation_time)).map((r) => {
+          {reservations.sort((a, b) => (a.reservation_time || "").localeCompare(b.reservation_time || "")).map((r) => {
             const table = tables.find((t) => t.id === r.table_id);
             return (
               <Card key={r.id} className={cn('p-4 border-2', r.status === 'cancelled' ? 'border-stone-200 opacity-50' : 'border-stone-200')}>
