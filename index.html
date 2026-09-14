@@ -18,14 +18,14 @@
                 <!-- AQUÍ COLOCAS TU LOGO -->
                 <img src="https://vhaxjxtzzgfiqfltzonl.supabase.co/storage/v1/object/public/logos/Logo%20Asador%20Parla%20Este%20.jpg" alt="Logo Asador Parla Este" class="h-10 w-10 object-contain">
                 <span class="text-xl font-bold tracking-wider text-amber-500">ASADOR PARLA ESTE</span>
-            </a>'
+            </a>
             <button id="menu-btn" class="md:hidden text-white focus:outline-none p-2">
                 <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
               </button>
             <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
-                <a href="#inicio" clas's="hover:text-amber-400 transition">Inicio</a>
+                <a href="#inicio" class="hover:text-amber-400 transition">Inicio</a>
                 <a href="#carta" class="hover:text-amber-400 transition">Carta</a>
                 <a href="#menu-viernes" class="hover:text-amber-400 transition">Menú de viernes</a>
                 <a href="#salas" class="hover:text-amber-400 transition">Salas de eventos</a>
@@ -37,6 +37,16 @@
             </a>
         </div>
     </header>
+
+    <!-- MENÚ DESPLEGABLE MÓVIL -->
+    <div id="mobile-menu" class="hidden md:hidden bg-stone-900 text-white border-t border-stone-800 px-6 py-4 space-y-3 fixed top-20 left-0 right-0 z-40 shadow-lg">
+        <a href="#inicio" class="block py-2 hover:text-amber-400 transition">Inicio</a>
+        <a href="#carta" class="block py-2 hover:text-amber-400 transition">Carta</a>
+        <a href="#menu-viernes" class="block py-2 hover:text-amber-400 transition">Menú de viernes</a>
+        <a href="#salas" class="block py-2 hover:text-amber-400 transition">Salas de eventos</a>
+        <a href="#reservas" class="block py-2 hover:text-amber-400 transition">Reservas</a>
+        <a href="#contacto" class="block py-2 hover:text-amber-400 transition">Contacto</a>
+    </div>
 
     <!-- SECCIÓN DE INICIO (HERO) -->
     <section id="inicio" class="relative h-screen flex items-center justify-center bg-stone-900 text-white pt-20">
@@ -606,7 +616,7 @@
         <p class="text-xs text-stone-500">&copy; 2026 Asador Parla Este. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- SCRIPT DE ENVÍO DIRECTO A SUPABASE -->
+    <!-- SCRIPT DE ENVÍO Y MENÚ MÓVIL -->
     <script>
         const SUPABASE_URL = 'https://vhaxjxtzzgfiqfltzonl.supabase.co';
         const SUPABASE_ANON_KEY = 'sb_publishable_HOccfuTR9sj-bGj4I1S2GQ_A7gdumdw';
@@ -627,8 +637,8 @@
                 customer_name: document.getElementById('nombre').value,
                 customer_phone: document.getElementById('telefono').value,
                 reservation_date: document.getElementById('fecha').value,
-                reservation_time: document.getElementById('hora').value, // Sincronizado con tu TPV de React
-                hora: document.getElementById('hora').value,             // Sincronizado con tu tabla de Supabase
+                reservation_time: document.getElementById('hora').value, 
+                hora: document.getElementById('hora').value,            
                 party_size: parseInt(document.getElementById('personas').value),
                 status: 'confirmed'
             };
@@ -649,13 +659,14 @@
                 btn.textContent = 'Confirmar Reserva';
             }
         });
-        <script>
-  const btn = document.getElementById('menu-btn');
-  const menu = document.getElementById('mobile-menu');
-  
-  btn.addEventListener('click', () => {
-    menu.classList.toggle('hidden');
-  });
-</script>
+
+        // Script para desplegar y ocultar el menú móvil
+        const btn = document.getElementById('menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    </script>
 </body>
 </html>
