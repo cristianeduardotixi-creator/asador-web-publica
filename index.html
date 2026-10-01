@@ -759,6 +759,19 @@
 
         </div>
     </section>
+    <div class="flex flex-wrap justify-center gap-6 text-stone-400">
+        <button type="button" onclick="openLegalModal('modal-aviso')" class="hover:text-amber-500 transition underline underline-offset-4">Aviso Legal</button>
+        <button type="button" onclick="openLegalModal('modal-privacidad')" class="hover:text-amber-500 transition underline underline-offset-4">Política de Privacidad</button>
+        <button type="button" onclick="openLegalModal('modal-cookies')" class="hover:text-amber-500 transition underline underline-offset-4">Política de Cookies</button>
+        <button type="button" onclick="openLegalModal('modal-alergenos')" class="hover:text-amber-500 transition underline underline-offset-4">Alérgenos</button>
+    </div>
+
+
+
+
+
+
+
 
 
     <footer class="bg-stone-900 text-stone-400 py-12 border-t border-stone-800 text-center">
@@ -834,5 +847,118 @@
             <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
         </svg>
     </a>
+<!-- CONTENEDOR MODALES LEGALES -->
+<div id="legal-backdrop" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] hidden items-center justify-center p-4" onclick="closeLegalModal(event)">
+    <div class="bg-stone-900 border border-stone-800 text-stone-300 rounded-2xl max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl relative" onclick="event.stopPropagation()">
+        
+        <!-- Cabecera del modal -->
+        <div class="p-6 border-b border-stone-800 flex justify-between items-center">
+            <h3 id="modal-title" class="text-xl font-bold text-amber-500"></h3>
+            <button type="button" onclick="forceCloseLegalModal()" class="text-stone-400 hover:text-white text-2xl font-bold leading-none">&times;</button>
+        </div>
+
+        <!-- Contenido scrollable -->
+        <div id="modal-content" class="p-6 overflow-y-auto space-y-4 text-sm leading-relaxed text-stone-300">
+            <!-- Se inyecta dinámicamente -->
+        </div>
+
+        <!-- Pie del modal -->
+        <div class="p-4 border-t border-stone-800 flex justify-end">
+            <button type="button" onclick="forceCloseLegalModal()" class="bg-stone-800 hover:bg-stone-700 text-white px-5 py-2 rounded-xl text-sm font-semibold transition">
+                Cerrar
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- TEXTOS LEGALES Y SCRIPT DE CONTROL -->
+<script>
+    const legalTexts = {
+        'modal-aviso': {
+            title: 'Aviso Legal',
+            body: `
+                <p class="font-semibold text-white">1. Datos Identificativos</p>
+                <p>En cumplimiento de la Ley 34/2002 de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), se informa que este sitio web es titularidad de <strong>Asador Parla Este</strong>, con domicilio en Calle Ámsterdam 11, 28982 Parla, Madrid. Correo de contacto: contacto@asadorparlaeste.com.</p>
+                
+                <p class="font-semibold text-white mt-4">2. Propiedad Intelectual</p>
+                <p>Todos los contenidos del sitio web (fotografías, textos, logotipos y código) están protegidos por las leyes de propiedad intelectual e industrial. Queda prohibida su reproducción sin autorización expresa previa.</p>
+                
+                <p class="font-semibold text-white mt-4">3. Condiciones de Uso</p>
+                <p>El usuario se compromete a hacer un uso adecuado de los contenidos y servicios (como el formulario de reservas) sin incurrir en actividades ilícitas o que perjudiquen los sistemas del sitio.</p>
+            `
+        },
+        'modal-privacidad': {
+            title: 'Política de Privacidad (RGPD)',
+            body: `
+                <p class="font-semibold text-white">1. Responsable del Tratamiento</p>
+                <p><strong>Asador Parla Este</strong> trata los datos personales recabados a través del formulario de reservas conforme al Reglamento (UE) 2016/679 (RGPD) y la LOPDGDD 3/2018.</p>
+
+                <p class="font-semibold text-white mt-4">2. Finalidad y Legitimación</p>
+                <p>Gestionar y confirmar su solicitud de mesa o evento en el restaurante. La base legal del tratamiento es el consentimiento expreso otorgado por el usuario al enviar el formulario.</p>
+
+                <p class="font-semibold text-white mt-4">3. Conservación y Cesión</p>
+                <p>Los datos se conservarán durante el tiempo necesario para la atención del servicio y el cumplimiento de obligaciones legales. No se cederán a terceros salvo imperativo legal.</p>
+
+                <p class="font-semibold text-white mt-4">4. Derechos del Usuario</p>
+                <p>Puede ejercer sus derechos de acceso, rectificación, supresión y oposición enviando un correo a contacto@asadorparlaeste.com indicando el derecho solicitado.</p>
+            `
+        },
+        'modal-cookies': {
+            title: 'Política de Cookies',
+            body: `
+                <p class="font-semibold text-white">1. Uso de Cookies</p>
+                <p>Este sitio web utiliza únicamente cookies técnicas estrictamente necesarias para la navegación y la seguridad de la conexión a través de Vercel.</p>
+
+                <p class="font-semibold text-white mt-4">2. Cookies de Terceros</p>
+                <p>Al utilizar servicios externos integrados como el mapa de Google Maps, el proveedor correspondiente puede instalar cookies para la prestación del servicio de geolocalización de acuerdo con sus propias políticas de privacidad.</p>
+
+                <p class="font-semibold text-white mt-4">3. Gestión de Cookies</p>
+                <p>El usuario puede permitir, bloquear o eliminar las cookies instaladas en su equipo mediante la configuración de las opciones de su navegador de internet.</p>
+            `
+        },
+        'modal-alergenos': {
+            title: 'Información sobre Alérgenos',
+            body: `
+                <p class="font-semibold text-white">Reglamento (UE) Nº 1169/2011</p>
+                <p>En cumplimiento de la legislación europea vigente sobre información alimentaria facilitada al consumidor, <strong>Asador Parla Este</strong> pone a disposición de sus clientes las fichas técnicas detalladas de alérgenos de cada plato de nuestra carta.</p>
+                
+                <p class="font-semibold text-white mt-4">Avisos Importantes:</p>
+                <ul class="list-disc pl-5 space-y-1">
+                    <li>Si usted o alguno de sus acompañantes presenta alguna alergia, intolerancia o necesidad dietética especial, rogamos <strong>lo comunique a nuestro personal antes de ordenar</strong>.</li>
+                    <li>Aunque aplicamos rigurosos protocolos de manipulación, en nuestra cocina se elaboran alimentos con diversos ingredientes, por lo que no es posible garantizar al 100% la ausencia de trazas o contaminación cruzada involuntaria.</li>
+                </ul>
+            `
+        }
+    };
+
+    function openLegalModal(key) {
+        const backdrop = document.getElementById('legal-backdrop');
+        const titleEl = document.getElementById('modal-title');
+        const contentEl = document.getElementById('modal-content');
+        
+        if (legalTexts[key]) {
+            titleEl.textContent = legalTexts[key].title;
+            contentEl.innerHTML = legalTexts[key].body;
+            backdrop.classList.remove('hidden');
+            backdrop.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+    }
+
+    function forceCloseLegalModal() {
+        const backdrop = document.getElementById('legal-backdrop');
+        backdrop.classList.add('hidden');
+        backdrop.classList.remove('flex');
+        document.body.style.overflow = 'auto';
+    }
+
+    function closeLegalModal(event) {
+        if (event.target.id === 'legal-backdrop') {
+            forceCloseLegalModal();
+        }
+    }
+</script>
+
+
 </body>
 </html>
