@@ -51,8 +51,8 @@
                 </svg>
               </button>
             <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
-                <a href="#inicio" class="hover:text-amber-400 transition">Inicio</a>
-                <a href="#carta" class="hover:text-amber-400 transition">Carta</a>
+                <a href="#Inicio" class="hover:text-amber-400 transition">Inicio</a>
+                <a href="#Carta" class="hover:text-amber-400 transition">Carta</a>
                 <a href="#menu-viernes" class="hover:text-amber-400 transition">Menú de viernes</a>
                 <a href="#salas" class="hover:text-amber-400 transition">Salas de eventos</a>
                 <a href="#Reservas" class="hover:text-amber-400 transition">Reservas</a>
@@ -66,16 +66,16 @@
 
     <!-- MENÚ DESPLEGABLE MÓVIL -->
     <div id="mobile-menu" class="hidden md:hidden bg-stone-900 text-white border-t border-stone-800 px-6 py-4 space-y-3 fixed top-20 left-0 right-0 z-40 shadow-lg">
-        <a href="#inicio" class="block py-2 hover:text-amber-400 transition">Inicio</a>
-        <a href="#carta" class="block py-2 hover:text-amber-400 transition">Carta</a>
+        <a href="#Inicio" class="block py-2 hover:text-amber-400 transition">Inicio</a>
+        <a href="#Carta" class="block py-2 hover:text-amber-400 transition">Carta</a>
         <a href="#menu-viernes" class="block py-2 hover:text-amber-400 transition">Menú de viernes</a>
         <a href="#salas" class="block py-2 hover:text-amber-400 transition">Salas de eventos</a>
-        <a href="#Reservas" class="block py-2 hover:text-amber-400 transition">reservas</a>
+        <a href="#Reservas" class="block py-2 hover:text-amber-400 transition">Reservas</a>
         <a href="#Catering" class="block py-2 hover:text-amber-400 transition">Catering</a>
     </div>
 
     <!-- SECCIÓN DE INICIO (HERO) -->
-    <section id="inicio" class="relative h-screen flex items-center justify-center bg-stone-900 text-white pt-20">
+    <section id="Inicio" class="relative h-screen flex items-center justify-center bg-stone-900 text-white pt-20">
         <div class="absolute inset-0 z-0">
             <img src="./img/ParrilladaXXL.jfif" alt="Asador Parla Este" class="w-full h-full object-cover opacity-40">
         </div>
@@ -91,7 +91,7 @@
 
     <!-- SECCIÓN DE PLATOS A LA CARTA -->
     <!-- SECCIÓN DE PRESENTACIÓN DE LA CARTA -->
-<section id="carta" class="pt-28 pb-12 max-w-7xl mx-auto px-6 scroll-mt-10">
+<section id="Carta" class="pt-28 pb-12 max-w-7xl mx-auto px-6 scroll-mt-10">
 
     <!-- CABECERA PRINCIPAL: TÍTULO Y FRASE LLAMATIVA -->
     <div class="text-center max-w-3xl mx-auto mb-10">
@@ -1024,6 +1024,24 @@
             forceCloseLegalModal();
         }
     }
+
+const menuBtn = document.getElementById('menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+
+if (menuBtn && mobileMenu) {
+    // Abre o cierra el menú al pulsar el botón de las tres rayas
+    menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+
+    // Cierra el menú automáticamente cuando el cliente toca una opción
+    mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+    });
+}
+
 </script>
 
 
