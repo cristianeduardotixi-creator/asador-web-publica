@@ -748,8 +748,35 @@
       font-size: 15px;
       line-height: 1.6;
       color: #292524;
-      margin: 0 0 20px 0;
+      margin: 0 0 22px 0;
     }
+    .resena-usuario {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .resena-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 16px;
+      color: #ffffff;
+      overflow: hidden;
+    }
+    .resena-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .avatar-1 { background-color: #d97706; }
+    .avatar-2 { background-color: #44403c; }
+    .avatar-3 { background-color: #b45309; }
     .resena-autor {
       font-size: 14px;
       font-weight: 700;
@@ -810,9 +837,12 @@
             <div class="resena-stars" aria-label="5 de 5 estrellas">★★★★★</div>
             <p class="resena-texto">«Excelente servicio, la comida está deliciosa y una gran cantidad. Sabor auténtico. No sabíamos de la existencia de este restaurante y definitivamente volvemos en una semana.»</p>
           </div>
-          <div>
-            <p class="resena-autor">Lis M.</p>
-            <p class="resena-origen">Local Guide · Reseña en Google</p>
+          <div class="resena-usuario">
+            <div class="resena-avatar avatar-1">L</div>
+            <div>
+              <p class="resena-autor">Lis M.</p>
+              <p class="resena-origen">Local Guide · Reseña en Google</p>
+            </div>
           </div>
         </article>
   
@@ -822,9 +852,12 @@
             <div class="resena-stars" aria-label="5 de 5 estrellas">★★★★★</div>
             <p class="resena-texto">«Todo perfecto, muy buena la tripita.»</p>
           </div>
-          <div>
-            <p class="resena-autor">Denis M.</p>
-            <p class="resena-origen">Reseña en Google</p>
+          <div class="resena-usuario">
+            <div class="resena-avatar avatar-2">D</div>
+            <div>
+              <p class="resena-autor">Denis M.</p>
+              <p class="resena-origen">Reseña en Google</p>
+            </div>
           </div>
         </article>
   
@@ -834,9 +867,12 @@
             <div class="resena-stars" aria-label="5 de 5 estrellas">★★★★★</div>
             <p class="resena-texto">«Comida espectacular y el trato inmejorable. Nos ha encantado, sin duda repetiremos.»</p>
           </div>
-          <div>
-            <p class="resena-autor">Silvia</p>
-            <p class="resena-origen">Reseña en Google</p>
+          <div class="resena-usuario">
+            <div class="resena-avatar avatar-3">S</div>
+            <div>
+              <p class="resena-autor">Silvia</p>
+              <p class="resena-origen">Reseña en Google</p>
+            </div>
           </div>
         </article>
       </div>
