@@ -187,7 +187,7 @@
         <div id="Entrantes" class="text-center max-w-2xl mx-auto mb-12 mt-10 scroll-mt-28">
             
             <h3 class="text-2xl md:text-3xl font-bold text-amber-600 mt-2">Entrantes</h3>
-            <p class="text-stone-600 mt-2">Para abrir el paladar.</p>
+            <p class="text-stone-600 mt-2">Para abrir el paladar y compartir al centro de la mesa.</p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition border border-stone-100">
@@ -629,7 +629,6 @@
     <!-- SECCIÓN DE Catering -->
 
 <!-- SECCIÓN CATERING PROFESIONAL -->
-<section id="Catering" class="py-12 max-w-7xl mx-auto px-6">
     <di<!-- SECCIÓN CATERING PROFESIONAL -->
         <section id="Catering" class="py-12 max-w-7xl mx-auto px-6">
             <div class="text-center max-w-2xl mx-auto mb-16">
@@ -691,6 +690,164 @@
         </a>
     </div>
 </section>
+
+<!-- SECCIÓN DE RESEÑAS -->
+<style>
+    .resenas-section {
+      padding: 64px 20px;
+      background-color: #faf9f7;
+      font-family: inherit;
+    }
+    .resenas-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .resenas-eyebrow {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #d97706;
+      margin: 0 0 8px 0;
+    }
+    .resenas-title {
+      font-size: 32px;
+      font-weight: 800;
+      color: #1c1917;
+      margin: 0 0 10px 0;
+    }
+    .resenas-subtitle {
+      font-size: 16px;
+      color: #57534e;
+      margin: 0 0 40px 0;
+    }
+    .resenas-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      text-align: left;
+    }
+    .resena-card {
+      background: #ffffff;
+      border: 1px solid #eceae6;
+      border-radius: 16px;
+      padding: 26px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .resena-stars {
+      color: #f59e0b;
+      font-size: 18px;
+      letter-spacing: 2px;
+      margin-bottom: 14px;
+    }
+    .resena-texto {
+      font-size: 15px;
+      line-height: 1.6;
+      color: #292524;
+      margin: 0 0 20px 0;
+    }
+    .resena-autor {
+      font-size: 14px;
+      font-weight: 700;
+      color: #1c1917;
+      margin: 0;
+    }
+    .resena-origen {
+      font-size: 12px;
+      color: #78716c;
+      margin: 2px 0 0 0;
+    }
+    .resenas-footer {
+      margin-top: 32px;
+    }
+    .resenas-link {
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 600;
+      color: #d97706;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+    .resenas-link:hover {
+      border-bottom-color: #d97706;
+    }
+  
+    /* En móvil: carrusel deslizable para no alargar la página */
+    @media (max-width: 768px) {
+      .resenas-title {
+        font-size: 26px;
+      }
+      .resenas-grid {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 16px;
+        padding-bottom: 10px;
+        -webkit-overflow-scrolling: touch;
+      }
+      .resena-card {
+        flex: 0 0 85%;
+        scroll-snap-align: center;
+      }
+    }
+  </style>
+  
+  <section class="resenas-section">
+    <div class="resenas-container">
+      <p class="resenas-eyebrow">OPINIONES REALES</p>
+      <h2 class="resenas-title">Lo que dicen nuestros clientes</h2>
+      <p class="resenas-subtitle">Valoraciones verificadas en Google sobre nuestra cocina y atención.</p>
+  
+      <div class="resenas-grid">
+        <!-- Reseña 1 -->
+        <article class="resena-card">
+          <div>
+            <div class="resena-stars" aria-label="5 de 5 estrellas">★★★★★</div>
+            <p class="resena-texto">«Excelente servicio, la comida está deliciosa y una gran cantidad. Sabor auténtico. No sabíamos de la existencia de este restaurante y definitivamente volvemos en una semana.»</p>
+          </div>
+          <div>
+            <p class="resena-autor">Lis M.</p>
+            <p class="resena-origen">Local Guide · Reseña en Google</p>
+          </div>
+        </article>
+  
+        <!-- Reseña 2 -->
+        <article class="resena-card">
+          <div>
+            <div class="resena-stars" aria-label="5 de 5 estrellas">★★★★★</div>
+            <p class="resena-texto">«Todo perfecto, muy buena la tripita.»</p>
+          </div>
+          <div>
+            <p class="resena-autor">Denis M.</p>
+            <p class="resena-origen">Reseña en Google</p>
+          </div>
+        </article>
+  
+        <!-- Reseña 3 -->
+        <article class="resena-card">
+          <div>
+            <div class="resena-stars" aria-label="5 de 5 estrellas">★★★★★</div>
+            <p class="resena-texto">«Comida espectacular y el trato inmejorable. Nos ha encantado, sin duda repetiremos.»</p>
+          </div>
+          <div>
+            <p class="resena-autor">Silvia</p>
+            <p class="resena-origen">Reseña en Google</p>
+          </div>
+        </article>
+      </div>
+  
+      <div class="resenas-footer">
+        <a href="PEGA_AQUI_TU_ENLACE_DE_GOOGLE" target="_blank" rel="noopener noreferrer" class="resenas-link">
+          Ver más reseñas en Google →
+        </a>
+      </div>
+    </div>
+  </section>
 
  <!-- SECCIÓN DE CONTACTO Y RESERVAS -->
  <section id="Reservas" class="py-12 bg-stone-100">
